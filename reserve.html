@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bearshare 대관신청</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div style="min-height: 100vh; display: flex; flex-direction: column">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DDE2EA">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #0B2A5B">
+      <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><circle cx="8" cy="9" r="5" fill="#0B2A5B"></circle><circle cx="24" cy="9" r="5" fill="#0B2A5B"></circle><circle cx="16" cy="18" r="12" fill="#0B2A5B"></circle><circle cx="12" cy="17" r="1.6" fill="#FFFFFF"></circle><circle cx="20" cy="17" r="1.6" fill="#FFFFFF"></circle><ellipse cx="16" cy="22.5" rx="4.5" ry="3.2" fill="#F2B23A"></ellipse></svg>
+      <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">Bearshare</span>
+    </a>
+    <nav aria-label="주메뉴" style="display: flex; gap: 4px; flex-wrap: wrap; align-items: center">
+      <a href="index.html" style="padding: 10px 14px; font-weight: 600; color: #1A2233; text-decoration: none; border-radius: 8px">홈</a>
+      <a href="spaces.html" style="padding: 10px 14px; font-weight: 600; color: #1A2233; text-decoration: none; border-radius: 8px">공간안내</a>
+      <a href="guide.html" style="padding: 10px 14px; font-weight: 600; color: #1A2233; text-decoration: none; border-radius: 8px">대관안내</a>
+      <a href="reserve.html" style="padding: 10px 14px; font-weight: 600; color: #1D4E9E; background: #EAF0FA; text-decoration: none; border-radius: 8px">대관신청</a>
+      <a href="classes.html" style="padding: 10px 14px; font-weight: 600; color: #1A2233; text-decoration: none; border-radius: 8px">수업 둘러보기</a>
+      <a href="mypage.html" style="margin-left: 8px; padding: 10px 16px; font-weight: 600; color: #FFFFFF; background: #0B2A5B; text-decoration: none; border-radius: 8px">내 예약</a>
+    </nav>
+  </div>
+</header>
+
+<main style="max-width: 1200px; width: 100%; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 20px">
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <span style="font-size: 14px; color: #5A6475">홈 › 공간 대관 › 대관신청</span>
+    <h1 style="margin: 0; font-size: 32px; letter-spacing: -0.02em">대관신청</h1>
+    <p style="margin: 0; font-size: 15px; color: #5A6475">날짜를 고르고, 시간표에서 원하는 공간의 빈칸을 눌러 주세요. 시작 칸과 끝 칸을 차례로 누르면 그 사이가 한 번에 선택돼요.</p>
+  </div>
+
+  <div style="background: #FFFFFF; border: 1px solid #DDE2EA; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+      <strong style="font-size: 17px">2026년 10월</strong>
+      <div style="display: flex; gap: 8px">
+        <button type="button" aria-label="이전 주" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #DDE2EA; background: #FFFFFF; color: #1A2233; cursor: pointer; font: inherit">‹</button>
+        <button type="button" aria-label="다음 주" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #DDE2EA; background: #FFFFFF; color: #1A2233; cursor: pointer; font: inherit">›</button>
+      </div>
+    </div>
+    <div id="days" role="group" aria-label="날짜 선택" style="display: flex; gap: 8px; flex-wrap: wrap"></div>
+    <div id="ruleText" style="font-size: 14px; color: #333C4D; background: #F5F7FB; border-radius: 10px; padding: 10px 14px"></div>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+    <section aria-label="공간별 시간표" style="flex: 999 1 640px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2EA; border-radius: 16px; overflow: hidden">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; padding: 14px 16px; border-bottom: 1px solid #DDE2EA; font-size: 13px; color: #333C4D">
+        <span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; border: 1px solid #C7D0DD; background: #FFFFFF"></span>예약 가능</span>
+        <span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #1D4E9E"></span>내가 선택</span>
+        <span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #DCE6F7"></span>예약됨</span>
+        <span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 4px; background: repeating-linear-gradient(135deg, #F1F3F7 0 4px, #E0E5EC 4px 8px)"></span>이용 불가</span>
+      </div>
+      <div style="overflow-x: auto">
+        <div id="grid" style="min-width: 740px"></div>
+      </div>
+    </section>
+
+    <aside style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+
+      <div style="background: #FFFFFF; border: 1px solid #DDE2EA; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+        <strong style="font-size: 17px">선택한 시간</strong>
+        <span id="noSel" style="font-size: 14px; line-height: 1.6; color: #5A6475">아직 선택하지 않았어요. 시간표의 흰 칸을 눌러 주세요.</span>
+        <div id="selBox" hidden style="flex-direction: column; gap: 6px; background: #EAF0FA; border-radius: 10px; padding: 14px">
+          <strong id="selSpace" style="font-size: 18px; color: #0B2A5B"></strong>
+          <span id="selDate" style="font-size: 15px"></span>
+          <span id="selTime" style="font-size: 15px; font-weight: 600; color: #1D4E9E"></span>
+        </div>
+      </div>
+
+      <form id="form" style="background: #FFFFFF; border: 1px solid #DDE2EA; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+        <strong style="font-size: 17px">신청 정보</strong>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="rname" style="font-size: 14px; font-weight: 600">이름 (모임명)</label>
+          <input id="rname" type="text" placeholder="홍길동 / 안서동 독서 모임" style="height: 44px; padding: 0 12px; border: 1px solid #C7D0DD; border-radius: 8px; font: inherit; font-size: 15px">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="rphone" style="font-size: 14px; font-weight: 600">연락처</label>
+          <input id="rphone" type="tel" placeholder="010-0000-0000" style="height: 44px; padding: 0 12px; border: 1px solid #C7D0DD; border-radius: 8px; font: inherit; font-size: 15px">
+        </div>
+        <div style="display: flex; gap: 12px">
+          <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+            <label for="rwho" style="font-size: 14px; font-weight: 600">구분</label>
+            <select id="rwho" style="height: 44px; padding: 0 10px; border: 1px solid #C7D0DD; border-radius: 8px; font: inherit; font-size: 15px; background: #FFFFFF">
+              <option>지역주민</option>
+              <option>재학생</option>
+            </select>
+          </div>
+          <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+            <label for="rcount" style="font-size: 14px; font-weight: 600">이용 인원</label>
+            <input id="rcount" type="number" min="1" placeholder="10" style="height: 44px; padding: 0 12px; border: 1px solid #C7D0DD; border-radius: 8px; font: inherit; font-size: 15px">
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="rpurpose" style="font-size: 14px; font-weight: 600">이용 목적</label>
+          <textarea id="rpurpose" rows="3" placeholder="예) 주민 독서 모임 정기 모임" style="padding: 10px 12px; border: 1px solid #C7D0DD; border-radius: 8px; font: inherit; font-size: 15px; resize: vertical"></textarea>
+        </div>
+
+        <div style="border: 1px solid #F0D9A8; background: #FFF8EA; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+          <strong style="font-size: 15px; color: #7A4B00">대관 전 꼭 확인해 주세요</strong>
+          <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.6; color: #3D3320">
+            <li>정치·종교 목적 모임, 물품 판매·광고 등 영리 행위는 이용할 수 없어요.</li>
+            <li>개인 스터디, 동호회, 소모임, 재료비·실비 수준 참가비를 받는 소규모 강습은 가능해요.</li>
+            <li>준비·정리 시간을 포함해 신청하고, 예약 시간에 맞춰 입실·퇴실해 주세요.</li>
+            <li>음주·흡연은 금지예요. 사용 후 기물을 원위치하고 쓰레기는 직접 수거해 주세요.</li>
+            <li>시설을 파손하면 원상복구 책임이 있어요.</li>
+          </ul>
+          <a href="guide.html" style="font-size: 13px; font-weight: 600">이용 기준 전체 보기</a>
+        </div>
+
+        <label style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; cursor: pointer">
+          <input id="agree" type="checkbox" style="width: 20px; height: 20px; margin: 1px 0 0; accent-color: #1D4E9E">
+          <span>위 이용 기준과 주의사항을 확인했으며 동의합니다. (필수)</span>
+        </label>
+        <span style="font-size: 12px; color: #5A6475">입력한 이름·연락처는 예약 확인과 안내에만 사용돼요.</span>
+
+        <button id="submit" type="button" disabled>대관 신청하기</button>
+        <span style="font-size: 12px; color: #5A6475; text-align: center">시범 기간 무료 · 관리자 승인 후 확정 · 시제품이라 실제로 접수되지는 않아요</span>
+      </form>
+
+      <div id="done" hidden style="background: #FFFFFF; border: 2px solid #1D4E9E; border-radius: 16px; padding: 24px; flex-direction: column; gap: 12px; align-items: flex-start">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1D4E9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
+        <strong style="font-size: 20px">신청이 접수됐어요</strong>
+        <span style="font-size: 14px; line-height: 1.6; color: #333C4D">관리자가 확인한 뒤 입력한 연락처로 승인 결과를 알려 드려요. 진행 상황은 내 예약에서 볼 수 있어요.</span>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <a href="mypage.html" style="padding: 12px 18px; border-radius: 10px; background: #1D4E9E; color: #FFFFFF; font-weight: 700; text-decoration: none">내 예약 보기</a>
+          <button id="reset" type="button" style="padding: 12px 18px; border-radius: 10px; border: 1px solid #C7D0DD; background: #FFFFFF; color: #1A2233; font: inherit; font-weight: 600; cursor: pointer">다른 시간 신청</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer style="background: #0B2A5B; color: #C9D4E8; margin-top: auto">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 1.7">
+    <strong style="color: #FFFFFF; font-size: 16px">Bearshare</strong>
+    <span>단국대학교 천안캠퍼스 유휴 공간 공유 시범 서비스 · 충남 천안시 동남구 단대로 119</span>
+    <span>캡스톤디자인2(공공정책) 쥬라기월드조 시제품 · 문의 [연락처]</span>
+  </div>
+</footer>
+</div>
+<script src="assets/reserve.js"></script>
+</body>
+</html>

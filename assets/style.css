@@ -1,0 +1,30 @@
+/* Bearshare 공통 스타일 */
+:root {
+  --navy: #0B2A5B;
+  --blue: #1D4E9E;
+  --ink: #1A2233;
+  --muted: #5A6475;
+  --line: #DDE2EA;
+  --bg: #F5F7FB;
+  --gold: #F2B23A;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans KR', system-ui, sans-serif;
+}
+a { color: var(--blue); }
+a:hover { color: var(--navy); }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+form input:not([type="checkbox"]), form select, form textarea {
+  width: 100%;
+  min-width: 0;
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);
+}
